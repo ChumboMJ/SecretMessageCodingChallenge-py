@@ -21,3 +21,23 @@
 # You may write helper functions, but there should be one function that:
 # 1. Takes in one argument, which is a string containing the URL for the Google Doc with the input data, AND
 # 2. When called, prints the grid of characters specified by the input data, displaying a graphic of correctly oriented uppercase letters.
+import requests
+
+def process_google_doc(url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+
+        #Start with getting the content, then printing the contents
+        content = response.text
+        print("Document content:")
+        print(content)
+
+    except requests.exceptions.RequestException as ex:
+        print(f"An error with the request has occurred: {ex}")
+        return None
+
+
+# Example usage
+google_doc_url = "https://docs.google.com/document/d/your_document_id/export?format=txt"
+process_google_doc(google_doc_url)
