@@ -56,4 +56,3 @@ simple_google_doc_url = "https://docs.google.com/document/d/e/2PACX-1vRMx5YQlZNa
 google_doc_url = "https://docs.google.com/document/d/e/2PACX-1vQGUck9HIFCyezsrBSnmENk5ieJuYwpt7YHYEzeNJkIb9OSDdx-ov2nRNReKQyey-cwJOoEKUhLmN9z/pub"
 process_google_doc(simple_google_doc_url)
 process_google_doc(google_doc_url)
-process_google_doc("this is not a real url")
