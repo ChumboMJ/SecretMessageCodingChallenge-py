@@ -61,10 +61,7 @@ def process_google_doc(url):
             output_grid[x][y] = char
 
         for row in output_grid:
-            print(' '.join(row))
-
-        print("=============================")
-        print(output_grid)
+            print(''.join(row))
 
     except requests.exceptions.RequestException as ex:
         print(f"An error with the request has occurred: {ex}")
