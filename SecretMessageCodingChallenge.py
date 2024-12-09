@@ -44,8 +44,16 @@ def process_google_doc(url):
         print(table)
 
         x_coordinates = table["x-coordinate"]
+        y_coordinates = table["x-coordinate"]
+
         print("max = " + str(x_coordinates.max()))
-        #print(x_coordinates)
+
+        # Determine Grid Size for output
+        max_x = x_coordinates.max()
+        max_y = y_coordinates.max()
+
+        # Create an empty grid
+        output_grid = [[' ' for _ in range(max_y + 1)] for _ in range(max_x + 1)]
 
     except requests.exceptions.RequestException as ex:
         print(f"An error with the request has occurred: {ex}")
