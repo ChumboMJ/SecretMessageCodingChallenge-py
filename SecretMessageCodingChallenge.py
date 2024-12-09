@@ -26,16 +26,21 @@
 # 1. Takes in one argument, which is a string containing the URL for the Google Doc with the input data, AND
 # 2. When called, prints the grid of characters specified by the input data, displaying a graphic of correctly oriented uppercase letters.
 import requests
+import pandas as pd
+import lxml
 
 def process_google_doc(url):
     try:
-        response = requests.get(url)
-        response.raise_for_status()
+        # response = requests.get(url)
+        # response.raise_for_status()
 
-        #Start with getting the content, then printing the contents
-        content = response.text
-        print("Document content:")
-        print(content)
+        # #Start with getting the content, then printing the contents
+        # content = response.text
+        # print("Document content:")
+        # print(content)
+
+        df = pd.read_html(url, encoding='utf-8')
+        print(df[0])
 
     except requests.exceptions.RequestException as ex:
         print(f"An error with the request has occurred: {ex}")
@@ -43,6 +48,7 @@ def process_google_doc(url):
 
 
 # Example usage
+document_id = "2PACX-1vRMx5YQlZNa3ra8dYYxmv-QIQ3YJe8tbI3kqcuC7lQiZm-CSEznKfN_HYNSpoXcZIV3Y_O3YoUB1ecq"
 simple_google_doc_url = "https://docs.google.com/document/d/e/2PACX-1vRMx5YQlZNa3ra8dYYxmv-QIQ3YJe8tbI3kqcuC7lQiZm-CSEznKfN_HYNSpoXcZIV3Y_O3YoUB1ecq/pub"
 google_doc_url = "https://docs.google.com/document/d/e/2PACX-1vQGUck9HIFCyezsrBSnmENk5ieJuYwpt7YHYEzeNJkIb9OSDdx-ov2nRNReKQyey-cwJOoEKUhLmN9z/pub"
 process_google_doc(simple_google_doc_url)
