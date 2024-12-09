@@ -39,8 +39,13 @@ def process_google_doc(url):
         # print("Document content:")
         # print(content)
 
-        df = pd.read_html(url, encoding='utf-8')
-        print(df[0])
+        df = pd.read_html(url, header=0, encoding='utf-8')
+        table = df[0]
+        print(table)
+
+        x_coordinates = table["x-coordinate"]
+        print("max = " + str(x_coordinates.max()))
+        #print(x_coordinates)
 
     except requests.exceptions.RequestException as ex:
         print(f"An error with the request has occurred: {ex}")
