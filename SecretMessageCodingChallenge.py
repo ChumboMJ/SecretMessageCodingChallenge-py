@@ -31,14 +31,6 @@ import lxml
 
 def process_google_doc(url):
     try:
-        # response = requests.get(url)
-        # response.raise_for_status()
-
-        # #Start with getting the content, then printing the contents
-        # content = response.text
-        # print("Document content:")
-        # print(content)
-
         df = pd.read_html(url, header=0, encoding='utf-8')
         table = df[0]
         print(table)
