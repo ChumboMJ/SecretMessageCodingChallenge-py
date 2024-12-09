@@ -33,12 +33,9 @@ def process_google_doc(url):
     try:
         df = pd.read_html(url, header=0, encoding='utf-8')
         table = df[0]
-        print(table)
 
         x_coordinates = table["x-coordinate"]
         y_coordinates = table["x-coordinate"]
-
-        print("max = " + str(x_coordinates.max()))
 
         # Determine Grid Size for output
         max_x = x_coordinates.max()
