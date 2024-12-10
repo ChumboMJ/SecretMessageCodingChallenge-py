@@ -46,16 +46,26 @@ def process_google_doc(url):
     # Determine Grid Size for output
     max_x = x_coordinates.max()
     max_y = y_coordinates.max()
-    #print(str(max_x))
-    #print(str(max_y))
+    print("max x value = " + str(max_x))
+    print("max y value = " + str(max_y))
 
     # Create an empty grid
     output_grid = [[' ' for _ in range(max_y + 1)] for _ in range(max_x + 1)]
 
+    #remove this later
+    for row in output_grid:
+        print(row)
+
     # Place characters in the grid
+    #print("Before the loop")
     for index, row in table.iterrows():
         x, y, char = row["x-coordinate"], row["y-coordinate"], row["Character"]
-        output_grid[y][x] = char
+        print(str(x) + str(y) + str(char) + " = output_grid[" + str(x) + "][" + str(y) + "]")
+        output_grid[x][y] = char
+
+    print(output_grid)
+    print(str(output_grid[0][0] + output_grid[0][1]) + output_grid[0][2])
+    print("=========")
 
     for row in output_grid:
         print(''.join(row))
