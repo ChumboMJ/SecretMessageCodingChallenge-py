@@ -25,9 +25,8 @@
 # You may write helper functions, but there should be one function that:
 # 1. Takes in one argument, which is a string containing the URL for the Google Doc with the input data, AND
 # 2. When called, prints the grid of characters specified by the input data, displaying a graphic of correctly oriented uppercase letters.
-import requests
+
 import pandas as pd
-import lxml
 
 def process_google_doc(url):
     df = pd.read_html(url, header=0, encoding='utf-8')
