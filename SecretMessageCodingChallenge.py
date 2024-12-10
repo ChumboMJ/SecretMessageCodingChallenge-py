@@ -1,9 +1,12 @@
 import pandas as pd
 
 def process_google_doc(url):
+    # Reads the tables in from the given url. header = 0 ensures that the first row is counted as headers
+    # and not values
     df = pd.read_html(url, header=0, encoding='utf-8')
     table = df[0]
 
+    # Extract x-coord and y-coord columns from the table
     x_coordinates = table["x-coordinate"]
     y_coordinates = table["y-coordinate"]
 
@@ -19,6 +22,7 @@ def process_google_doc(url):
         x, y, char = row["x-coordinate"], row["y-coordinate"], row["Character"]
         output_grid[max_y - y][x] = char
 
+    # Print the grid out row by row joined by nulls
     for row in output_grid:
         print(''.join(row))
 
