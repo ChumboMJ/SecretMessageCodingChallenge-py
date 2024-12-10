@@ -49,7 +49,7 @@ def process_google_doc(url):
     print("max x value = " + str(max_x))
     print("max y value = " + str(max_y))
 
-    # Create an empty grid
+    # Create an empty grid, add 1 to the max_x and ma_y values to take 0 into consideration for coordinates.
     output_grid = [[' ' for _ in range(max_x + 1)] for _ in range(max_y + 1)]
 
     #remove this later
@@ -61,7 +61,7 @@ def process_google_doc(url):
     for index, row in table.iterrows():
         x, y, char = row["x-coordinate"], row["y-coordinate"], row["Character"]
         print(str(x) + str(y) + str(char) + " = output_grid[" + str(x) + "][" + str(y) + "]")
-        output_grid[x][y] = char
+        output_grid[max_y - y][x] = char
 
     print(output_grid)
     print(str(output_grid[0][0] + output_grid[0][1]) + output_grid[0][2])
@@ -74,4 +74,4 @@ def process_google_doc(url):
 simple_google_doc_url = "https://docs.google.com/document/d/e/2PACX-1vRMx5YQlZNa3ra8dYYxmv-QIQ3YJe8tbI3kqcuC7lQiZm-CSEznKfN_HYNSpoXcZIV3Y_O3YoUB1ecq/pub"
 google_doc_url = "https://docs.google.com/document/d/e/2PACX-1vQGUck9HIFCyezsrBSnmENk5ieJuYwpt7YHYEzeNJkIb9OSDdx-ov2nRNReKQyey-cwJOoEKUhLmN9z/pub"
 process_google_doc(simple_google_doc_url)
-#process_google_doc(google_doc_url)
+process_google_doc(google_doc_url)
