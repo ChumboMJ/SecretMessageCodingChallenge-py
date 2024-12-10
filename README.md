@@ -22,13 +22,18 @@ Any positions in the grid that do not have a specified character should be fille
 You can assume the document will always have the same format as the example document linked above.
 
 For example, the simplified example document linked above draws out the letter 'F':
-█▀▀▀
-█▀▀ 
-█
+# █▀▀▀
+# █▀▀ 
+# █
 
-### NOTE: the coordinates (0, 0) will always correspond to the same corner of the grid as in this example, so make sure to understand in which directions the x- and y-coordinates increase.
+##### NOTE: the coordinates (0, 0) will always correspond to the same corner of the grid as in this example, so make sure to understand in which directions the x- and y-coordinates increase.
 
 # Specifications
+Your code must be written in Python (preferred) or JavaScript.
+You may use external libraries.
+You may write helper functions, but there should be one function that:
+1. Takes in one argument, which is a string containing the URL for the Google Doc with the input data, AND
+2. When called, prints the grid of characters specified by the input data, displaying a graphic of correctly oriented uppercase letters.
 Your code must be written in Python (preferred) or JavaScript.
 You may use external libraries.
 You may write helper functions, but there should be one function that:
