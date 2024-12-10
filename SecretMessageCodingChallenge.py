@@ -50,7 +50,7 @@ def process_google_doc(url):
     print("max y value = " + str(max_y))
 
     # Create an empty grid
-    output_grid = [[' ' for _ in range(max_y + 1)] for _ in range(max_x + 1)]
+    output_grid = [[' ' for _ in range(max_x + 1)] for _ in range(max_y + 1)]
 
     #remove this later
     for row in output_grid:
